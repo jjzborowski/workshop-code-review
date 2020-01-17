@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    position: relative;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery .gallery__panel {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.gallery .gallery__container {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    margin-top: 65px;
+    max-width: 1062px;
+    padding: 5px;
+}
+
+.gallery__panel button {
+    padding: 10px 14px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 10px;
+    transition: background-color 0.5s;
+    cursor: pointer;
+}
+
+.gallery__panel input {
+    padding-top: 0;
+    padding-right: 8px;
+    padding-bottom: 0;
+    padding-left: 8px;
+}
+
+.gallery .gallery__cell {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 5px 5px 5px;
+}
+
+.gallery .gallery__image {
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: imageAnimation 5s;
+    animation-fill-mode: forwards;
+}
+
+.gallery .gallery__image img {
+    height: inherit;
+    width: inherit;
+    position: absolute;
+    transition: height 1s, width 1s, transform 1s;
+}
+
+.gallery .gallery__image-title {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    font-family: Calibri, sans-serif;
+    padding: 5px 0;
+    background-color: #9e9e9e;
+    transition: background-color 1s;
+}
+
+.gallery .gallery__cell:hover {
+    box-shadow: 0 0 5px 1px #000000;
+}
+
+.gallery .gallery__cell:hover .gallery__image img {
+    transform: scale(1.25);
+}
+
+.gallery .gallery__cell:hover .gallery__image-title {
+    background-color: #cecece;
+}
+
+.gallery .gallery__remove_button {
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    width: 24px;
+    border: 1px #000000 solid;
+    border-radius: 50%;
+    top: 4px;
+    right: 4px;
+    position: absolute;
+    cursor: pointer;
+    background-color: rgba(206, 206, 206, 0.25);
+    font-family: "Roboto Light", sans-serif;
+    display: none;
+    transition: transform 0.5s, background-color 0.5s;
+}
+
+.gallery .gallery__cell:hover .gallery__remove_button {
+    display: flex;
+}
+
+.gallery .gallery__remove_button:hover {
+    transform: scale(1.25);
+    background-color: rgba(206, 206, 206, 0.75);
+}
+
+@media screen and (max-width: 1024px) and (min-width: 500px){
+    .gallery .gallery__image {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@keyframes imageAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
